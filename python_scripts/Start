@@ -1,0 +1,14 @@
+from pester import Pester
+
+p = Pester()
+
+# اجرای مکرر - می‌تونی اسم معمولی بدی (نیازی به مسیر کامل نیست)
+p.launch_every("firefox", "2 seconds")   # هر ۲ ثانیه فایرفاکس باز بشه
+p.launch_every("notepad", "10 seconds")  # دفترچه یادداشت هر ۱۰ ثانیه
+
+# مسدود کردن - فقط اسم پروسه (با یا بدون exe.)
+p.block("")    # هر پروسه‌ای که اسمش firefox داره فوراً بسته بشه
+p.block("Code")       # VS Code رو هم ببنده
+p.block("mspaint")    # Paint هم نتونه اجرا بشه
+
+p.start()
