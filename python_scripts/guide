@@ -1,0 +1,98 @@
+"""
+Pester - A Process Management Tool for Testing and Automation
+
+⚠️ WARNING: This tool is designed for educational and testing purposes only.
+Use it responsibly and only on systems you own or have explicit permission to test.
+
+Description:
+-----------
+Pester is a Python class that provides two main functionalities:
+1. Launch programs periodically at specified intervals
+2. Block (kill) specific processes by name
+
+Requirements:
+------------
+- Python 3.6 or higher
+- psutil library: pip install psutil
+
+Basic Usage:
+-----------
+from pester import Pester
+
+# Create an instance
+p = Pester()
+
+# Launch Firefox every 2 seconds
+p.launch_every("firefox", "2 seconds")
+
+# Launch Notepad every 10 seconds (Windows)
+p.launch_every("notepad", "10 seconds")
+
+# Block any process containing "firefox" in its name
+p.block("firefox")
+
+# Block VS Code
+p.block("Code")
+
+# Block Paint (Windows)
+p.block("mspaint")
+
+# Start the pestering!
+p.start()
+
+How It Works:
+------------
+1. launch_every(): 
+   - Finds the executable path automatically (using shutil.which)
+   - Launches the program using subprocess.Popen()
+   - Re-launches it at the specified interval
+
+2. block():
+   - Monitors all running processes
+   - Kills any process whose name contains the specified substring
+   - Checks every 0.3 seconds
+
+Supported Time Formats:
+---------------------
+- '500 milliseconds' or '500ms'
+- '5 seconds' or '5s'
+- '2 minutes' or '2m'
+- '1 hour' or '1h'
+
+Example:
+--------
+p.launch_every("calc", "30 seconds")  # Open calculator every 30 seconds
+
+Platform Support:
+----------------
+- Windows: Works with .exe files (extension is optional)
+- Linux: Works with executable names (firefox, gedit, etc.)
+- macOS: Works with app names (Safari, etc.)
+
+Stopping the Program:
+-------------------
+- Press Ctrl+C to stop the pestering
+- All background threads will be terminated
+
+⚠️ Important Notes:
+-------------------
+1. This tool can be disruptive if used maliciously
+2. Use it only on your own computer
+3. The block function will forcefully terminate processes without saving data
+4. Some processes may have restrictions (AccessDenied error)
+5. The program does NOT run on GitHub Pages - it must be executed locally
+
+Troubleshooting:
+---------------
+- If a program doesn't launch, try providing the full path:
+  p.launch_every("C:/Program Files/Firefox/firefox.exe", "5 seconds")
+
+- If you see AccessDenied errors, try running with administrator/sudo privileges
+
+- On Linux/macOS, you may need to use the exact executable name:
+  p.launch_every("firefox", "2 seconds")
+  p.launch_every("gedit", "5 seconds")
+
+Author: Vortix Labs
+License: Apache 2.0
+"""
