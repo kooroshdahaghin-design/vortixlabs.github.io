@@ -1,0 +1,369 @@
+```markdown
+# 🧮 My Calculator Lib
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Version](https://img.shields.io/badge/Version-2.0.0-orange)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
+
+**یه کتابخونهٔ پایتونی برای ساخت ماشین حساب‌های گرافیکی فوق‌مدرن با ۵۹ تم مختلف**
+
+*فقط با یک خط کد، یه ماشین حساب شیشه‌ای و حرفه‌ای بساز!*
+
+</div>
+
+---
+
+## 📸 پیش‌نمایش (Preview)
+
+<div align="center">
+
+| تم S+ (اولترا شیشه‌ای) | تم 3 (نئونی) | تم A (پاستلی) |
+|:---:|:---:|:---:|
+| 🥇 بهترین تم | 🥈 سایبرپانکی | 🥉 ملایم و دخترونه |
+| بنفش لوکس + طلایی | سبز نئونی + مشکی | صورتی + سفید |
+
+</div>
+
+---
+
+## ✨ ویژگی‌ها (Features)
+
+- 🎨 **۵۹ تم آماده** (۱ تا ۵۰ تم خودکار + ۹ تم ویژه مثل `S`، `S+`، `X`، `3`)
+- 🧠 **پشتیبانی از SymPy** برای محاسبات دقیق و سمبولیک (ریشه، مشتق، انتگرال)
+- 🪟 **ظاهر شیشه‌ای مدرن** با CustomTkinter (Glassmorphism)
+- 🌓 **تم تاریک و روشن** برای هر سلیقه
+- 🎯 **شخصی‌سازی کامل رنگ‌ها** با پارامتر `custom_colors`
+- 📐 **تنظیم اندازهٔ دلخواه** (عرض، ارتفاع، یا تمام‌صفحه)
+- 🔄 **باز کردن هم‌زمان چند ماشین حساب** با `open_calculator`
+- 📦 **تبدیل آسان به EXE** با PyInstaller
+- 📖 **راهنمای داخلی** (`help_calculator`) و **تور کتابخونه‌ها** (`tour`)
+
+---
+
+## 📦 نصب (Installation)
+
+### ۱. نصب کتابخونه
+
+```bash
+# فقط کتابخونه رو دانلود کن و بذار کنار پروژه‌ات
+# فایل my_calculator_lib.py رو از ریپازیتوری بردار
+```
+
+### ۲. نصب وابستگی‌های اختیاری (Optional Dependencies)
+
+```bash
+# برای ظاهر فوق‌مدرن (شدیداً توصیه میشه)
+pip install customtkinter
+
+# برای محاسبات دقیق و سمبولیک
+pip install sympy
+```
+
+---
+
+## 🚀 شروع سریع (Quick Start)
+
+### ساده‌ترین حالت - فقط ۳ خط:
+
+```python
+from my_calculator_lib import run_calculator
+
+# یه ماشین حساب شیشه‌ای با تم پیش‌فرض
+run_calculator()
+```
+
+### با تم دلخواه:
+
+```python
+from my_calculator_lib import run_calculator
+
+# تم S+ (اولترا شیشه‌ای - بهترین تم)
+run_calculator("حسابگر لوکس", 420, 700, level='S+')
+
+# تم 3 (نئونی سبز)
+run_calculator("نئونی", 400, 650, level='3')
+
+# تم X (دارک الگانت بنفش)
+run_calculator("الگانت", 380, 620, level='X')
+```
+
+### با رنگ‌های شخصی‌سازی‌شده:
+
+```python
+from my_calculator_lib import run_calculator
+
+# رنگ‌های دلخواه خودت رو بده
+my_colors = {
+    'bg': '#0d0d0d',           # background - پس‌زمینه
+    'display_bg': '#1a1a1a',   # display bg - پس‌زمینهٔ نمایشگر
+    'display_fg': '#ffd700',   # display fg - رنگ متن نمایشگر (طلایی)
+    'btn_bg': '#2a2a2a',       # button bg - رنگ دکمه‌ها
+    'btn_fg': '#ffffff',       # button fg - متن دکمه‌ها
+    'btn_hover': '#4a4a4a',    # button hover - افکت موس
+    'op_btn_bg': '#ff8c00',    # operator bg - دکمه‌های + - * /
+    'op_btn_fg': '#000000',    # operator fg
+    'eq_btn_bg': '#00ff88',    # equal bg - دکمهٔ =
+    'eq_btn_fg': '#000000',    # equal fg
+    'clr_btn_bg': '#ff3366',   # clear bg - دکمهٔ C
+    'clr_btn_fg': '#ffffff',   # clear fg
+    'roundness': 25,           # گردی گوشه‌ها
+    'is_dark': True            # تم تاریک
+}
+
+run_calculator(
+    title="حسابگر شخصی من",
+    width=420,
+    height=700,
+    custom_colors=my_colors
+)
+```
+
+---
+
+## 📚 راهنمای کامل (Full Guide)
+
+### توابع اصلی
+
+| تابع | توضیح |
+|------|--------|
+| `run_calculator()` | باز کردن یک ماشین حساب (تا بسته نشه، برنامه صبر می‌کنه) |
+| `open_calculator()` | باز کردن ماشین حساب در پس‌زمینه (می‌تونی چندتا رو هم‌زمان باز کنی) |
+| `help_calculator()` | نمایش راهنمای کامل در کنسول |
+| `tour()` | معرفی کتابخونه‌های پیشرفتهٔ پایتون |
+
+### تم‌های آماده
+
+| نوع | نام تم‌ها | توضیح |
+|------|-----------|--------|
+| **خودکار** | `1` تا `50` | ۵۰ تم رنگین‌کمانی تولیدشده |
+| **ویژه** | `S+` | 🥇 اولترا شیشه‌ای لوکس |
+| | `S` | 🥈 شیشه‌ای کلاسیک |
+| | `X` | 🥉 دارک الگانت بنفش |
+| | `3` | نئونی سبز |
+| | `2` | دارک مدرن |
+| | `1` | کلاسیک ساده |
+| | `A` | پاستلی صورتی |
+| | `B` | نوئومورفیسم روشن |
+| | `Y` | تابستونی پرانرژی |
+
+### پارامترهای `run_calculator()`
+
+| پارامتر | نوع | پیش‌فرض | توضیح |
+|----------|------|---------|--------|
+| `title` | `str` | `"حسابگر"` | عنوان پنجره |
+| `width` | `int`/`str` | `400` | عرض (`"auto"` = خودکار، `"fullscreen"` = تمام‌صفحه) |
+| `height` | `int` | `650` | ارتفاع |
+| `level` | `str` | `'S'` | نام تم (`'S+'`, `'3'`, `'42'`, ...) |
+| `custom_colors` | `dict` | `None` | دیکشنری رنگ‌های سفارشی |
+| `use_sympy` | `bool` | `True`* | استفاده از SymPy برای محاسبات دقیق |
+
+*اگر SymPy نصب باشه
+
+---
+
+## 💻 ساخت فایل EXE
+
+با PyInstaller به راحتی تبدیلش کن به یه برنامهٔ ویندوزی:
+
+```bash
+# ۱. نصب PyInstaller (فقط یک بار)
+pip install pyinstaller
+
+# ۲. ساخت EXE
+pyinstaller --onefile --windowed --noconfirm --name "حسابگر_من" a.py
+
+# ۳. فایل EXE توی پوشهٔ dist آماده‌ست
+# مسیر: ./dist/حسابگر_من.exe
+```
+
+### با آیکون اختصاصی:
+
+```bash
+pyinstaller --onefile --windowed --noconfirm --name "حسابگر_من" --icon=my_icon.ico a.py
+```
+
+---
+
+## 🔧 ساختار پروژه (Project Structure)
+
+```
+my-calculator-project/
+│
+├── my_calculator_lib.py     # کتابخونهٔ اصلی (همین رو import کن)
+├── a.py                     # اسکریپت نمونه
+├── README.md                # همین فایل
+├── requirements.txt         # وابستگی‌ها
+└── dist/                    # فایل‌های EXE ساخته‌شده
+    └── حسابگر_من.exe
+```
+
+---
+
+## 📋 نیازمندی‌ها (Requirements)
+
+```
+# requirements.txt
+
+# پایه (همراه پایتون)
+tkinter
+
+# پیشنهادی (برای ظاهر و محاسبات بهتر)
+customtkinter>=5.2.0
+sympy>=1.12
+```
+
+---
+
+## 🎯 مثال‌های پیشرفته (Advanced Examples)
+
+### چند ماشین حساب هم‌زمان:
+
+```python
+from my_calculator_lib import open_calculator
+
+# سه تا ماشین حساب با تم‌های مختلف هم‌زمان باز میشن
+open_calculator("نئونی", 400, 600, '3')
+open_calculator("شیشه‌ای", 400, 600, 'S+')
+open_calculator("پاستلی", 400, 600, 'A')
+
+# برنامه اصلی منتظر نمی‌مونه و ادامه میده
+print("سه ماشین حساب باز شدن!")
+input("برای بستن همه، Enter بزن...")
+```
+
+### محاسبات دقیق با SymPy:
+
+```python
+from my_calculator_lib import run_calculator
+
+# اگه SymPy نصب باشه، جواب‌ها دقیق نمایش داده میشن
+# مثلاً: √2 به‌جای 1.41421356
+run_calculator("ماشین حساب دقیق", 420, 700, level='S+', use_sympy=True)
+```
+
+### تمام‌صفحه با تم شخصی:
+
+```python
+from my_calculator_lib import run_calculator
+
+run_calculator(
+    title="تمام صفحه",
+    width="fullscreen",
+    height=None,
+    level='X',
+    custom_colors={'btn_bg': '#333333', 'display_fg': '#00ff00'}
+)
+```
+
+---
+
+## 🛠️ توسعه‌دهندگان (Developers)
+
+### اضافه کردن تم جدید:
+
+توی فایل `my_calculator_lib.py` به دیکشنری `NAMED_THEMES` اضافه کن:
+
+```python
+NAMED_THEMES = {
+    # ... تم‌های قبلی ...
+    
+    'MY_AWESOME_THEME': {
+        'bg': '#123456',
+        'display_bg': '#abcdef',
+        # ... بقیهٔ رنگ‌ها ...
+        'roundness': 20,
+        'is_dark': True
+    }
+}
+```
+
+بعدش اینطوری استفاده کن:
+
+```python
+run_calculator(level='MY_AWESOME_THEME')
+```
+
+---
+
+## 🤝 مشارکت (Contributing)
+
+۱. ریپازیتوری رو Fork کن  
+۲. یه Branch جدید بساز (`git checkout -b feature/amazing-feature`)  
+۳. تغییراتت رو Commit کن (`git commit -m 'Add amazing feature'`)  
+۴. Branch رو Push کن (`git push origin feature/amazing-feature`)  
+۵. Pull Request باز کن
+
+---
+
+## 📜 مجوز (License)
+
+این پروژه تحت مجوز MIT منتشر شده - فایل [LICENSE](LICENSE) رو ببین.
+
+---
+
+## 🙏 تقدیر و تشکر (Acknowledgments)
+
+- [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) - برای ظاهر مدرن و شیشه‌ای
+- [SymPy](https://www.sympy.org/) - برای محاسبات دقیق و سمبولیک
+- [PyInstaller](https://pyinstaller.org/) - برای ساخت فایل EXE
+
+---
+
+## 📞 تماس (Contact)
+
+اگه سوال یا پیشنهادی داری، Issue باز کن یا Pull Request بفرست.
+
+---
+
+<div align="center">
+
+**⭐ اگه خوشت اومد، ستاره یادت نره! ⭐**
+
+ساخته‌شده با ❤️ و Python
+
+</div>
+```
+
+---
+
+## 📁 فایل‌های اضافی برای گیت‌هاب
+
+### `requirements.txt`:
+
+```
+customtkinter>=5.2.0
+sympy>=1.12
+```
+
+### `LICENSE` (MIT):
+
+```
+MIT License
+
+Copyright (c) 2026
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+---
+
+این سند کامل رو بذار توی فایل `README.md` توی گیت‌هاب. با همهٔ توضیحات، مثال‌ها، و راهنماهایی که می‌خواستی آماده‌ست. 😊
